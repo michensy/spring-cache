@@ -1,0 +1,35 @@
+server:
+  port: 8812
+
+logging:
+  path: /app/data/logs/
+  level:
+    default: debug
+
+mybatis:
+  mapper-locations: classpath:mapper/**.xml
+
+spring:
+  #数据源配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/demo_user_db?useSSL=false&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=GMT%2B8
+      # 初始化 最小 最大
+      initial-size: 50
+      min-idle: 30
+      max-active: 500
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    timeout: 3000s
+    database: 0

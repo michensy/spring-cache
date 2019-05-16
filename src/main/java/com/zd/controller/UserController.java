@@ -70,6 +70,7 @@ public class UserController {
     @CacheEvict(value = "user", key = "#uid")
     public String updateUser(String uid) {
         TfSysUser tfSysUser = new TfSysUser();
+        tfSysUser.setUserId(Long.valueOf(uid));
         tfSysUser.setUserName("test");
         tfSysUser.setStaffId(RandomUtils.generateNumberString(11));
         tfSysUser.setMobileNo(RandomUtils.generateNumberString(11));

@@ -27,14 +27,10 @@ public class UserService {
         return userMapper.selectByPrimaryKey(uid);
     }
 
-    public List<TfSysUser> getAll() {
-        return userMapper.selectAll();
-    }
-
     public int updateUser(TfSysUser user) {
         Example example = new Example(TfSysUser.class);
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("userId", user);
+        criteria.andEqualTo("userId", user.getUserId());
         return userMapper.updateByExampleSelective(user, example);
     }
 
